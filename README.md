@@ -26,4 +26,16 @@ Installation:
 
 7. create the policy: aws iam create-policy --policy-name AWSLoadBalancerControllerIAMPolicy --policy-document file://AWSLoadBalancerControllerIAMPolicy.json
 
-8. install ALB controller (post adding and updating eks repo): helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system --set clusterName=2048-game-cluster --set serviceAccount.create=false --set serviceAccount.name=aws-load-balancer-controller --set region=ap-south-1 --set vpcId=<vpc-id>
+8. install ALB controller (post adding and updating eks repo): helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system --set clusterName=2048-game-cluster --set serviceAccount.create=false --set serviceAccount.name=aws-load-balancer-controller --set region=ap-south-1 --set vpcId= <vpc-id> 
+
+   verify if ingress controller is running: kubectl get deployment -n kube-system aws-load-balancer-controller
+
+9.  load balancer should be active under EC2: access 2048 game at LB's address (kubectl get ingress -n 2048, address field))
+    http://k8s-game2048-ingress2-25eefcb163-148546756.ap-south-1.elb.amazonaws.com
+
+    Ingress Controller (K8 pod) picks up ingress rules from Ingress Resource (static yaml) and provisions a Load Balancer (ELB).
+    The address of this load balancer is made available at the ingress resource's address field.
+
+10. cleanup: delete the eks cluster: eksctl delete cluster --name 2048-game-cluster --region ap-south-1
+             delete assosciated resources, such as the elastic load balancer, created roles and policies. 
+
