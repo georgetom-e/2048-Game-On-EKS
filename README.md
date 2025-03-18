@@ -51,13 +51,15 @@
 
   8.  Check load balancer: access 2048 game at LB's address
 
-             kubectl get ingress -n 2048 (Address field)
-             Inactive: http://k8s-game2048-ingress2-25eefcb163-148546756.ap-south-1.elb.amazonaws.com
+     kubectl get ingress -n 2048 (Address field)
+     Inactive: http://k8s-game2048-ingress2-25eefcb163-148546756.ap-south-1.elb.amazonaws.com
 
 ---    
 
- ## Cleanup: Delete EKS Cluster:
-                        
+ ## Cleanup:
+
+Delete EKS Cluster 
+
     eksctl delete cluster --name 2048-game-cluster --region ap-south-1
              
 Delete assosciated resources, such as the elastic load balancer, created roles and policies.
