@@ -1,7 +1,7 @@
 # 2048-Game-On-EKS
 ## 2048 Tile Game Deployed on AWS EKS 
 
-![2048 Game on EKS](image.jpg)
+![2048 Game on EKS](2048-game-eks.png)
 
 
 ---
