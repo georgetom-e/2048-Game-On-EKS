@@ -30,7 +30,7 @@
 
   4. Create namespace, deployment, pod, service, ingress rule: 
 
-    kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.5.4/docs/examples/2048/2048_full.yaml
+    kubectl apply -f https://raw.githubusercontent.com/georgetom-e/2048-Game-On-EKS/refs/heads/main/2048-app.yaml
 
   5. Configure IAM-OIDC provider (for ingress controller - ALB communication):
 
