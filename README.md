@@ -16,9 +16,9 @@
 
 ## Installation: 
 
-1. EKS cluster setup (fargate):  
+###1. EKS cluster setup (fargate):  
 
-  `eksctl create cluster --name 2048-game-cluster --region ap-south-1 --fargate` 
+    `eksctl create cluster --name 2048-game-cluster --region ap-south-1 --fargate` 
 
 2. kubectl-EKS connection config:
 
