@@ -47,25 +47,34 @@
     helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system --set clusterName=2048-game-cluster --set serviceAccount.create=false --set 
     serviceAccount.name=aws-load-balancer-controller --set region=ap-south-1 --set vpcId= <vpc-id> 
 
- **Verify ingress controller status**: kubectl get deployment -n kube-system aws-load-balancer-controller
+    **Verify ingress controller status**: kubectl get deployment -n kube-system aws-load-balancer-controller
 
   8.  Check load balancer: access 2048 game at LB's address
 
-             kubectl get ingress -n 2048, address field)
+             kubectl get ingress -n 2048 (Address field)
              Inactive: http://k8s-game2048-ingress2-25eefcb163-148546756.ap-south-1.elb.amazonaws.com
 
 ---    
 
- **Cleanup**: delete EKS cluster:
+ ## Cleanup: Delete EKS Cluster:
                         
     eksctl delete cluster --name 2048-game-cluster --region ap-south-1
              
 Delete assosciated resources, such as the elastic load balancer, created roles and policies.
  
-             `aws elbv2 describe-load-balancers --region <region>`
-             `aws elbv2 delete-load-balancer --load-balancer-arn <load-balancer-arn> --region <region>`
+              aws elbv2 describe-load-balancers --region <region>
+              aws elbv2 delete-load-balancer --load-balancer-arn <load-balancer-arn> --region <region>
 
-             `aws ec2 describe-nat-gateways --region <region>`
-             `aws ec2 delete-nat-gateway --nat-gateway-id <nat-gateway-id> --region <region>`
-`    
+              aws ec2 describe-nat-gateways --region <region>
+              aws ec2 delete-nat-gateway --nat-gateway-id <nat-gateway-id> --region <region>
+  
+              aws iam list-roles
+              aws iam delete-role --role-name <role-name>
+              
+              aws iam list-policies
+              aws iam delete-policy --policy-arn <policy-arn>
+
+             
+
+
 
