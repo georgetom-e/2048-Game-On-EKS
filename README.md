@@ -1,18 +1,17 @@
 # 2048-Game-On-EKS
-2048 Tile Game Deployed on AWS EKS 
-
-
-Pre-requisites: 
+## 2048 Tile Game Deployed on AWS EKS 
+---
+## Pre-requisites: 
 
 1. AWS CLI 
 2. kubectl 
 3. eksctl 
 
 
-Installation: 
+## Installation: 
 
 
-1. EKS cluster setup (fargate): eksctl create cluster --name 2048-game-cluster --region ap-south-1 --fargate
+1. EKS cluster setup (fargate): ' eksctl create cluster --name 2048-game-cluster --region ap-south-1 --fargate '
 
 2. kubectl-EKS connection: aws eks update-kubeconfig --region ap-south-1 --name 2048-game-cluster
 
