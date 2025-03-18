@@ -38,4 +38,6 @@ Installation:
 
 10. cleanup: delete the eks cluster: eksctl delete cluster --name 2048-game-cluster --region ap-south-1
              delete assosciated resources, such as the elastic load balancer, created roles and policies. 
+             aws elbv2 describe-load-balancers --region <region>
+             aws ec2 describe-nat-gateways --region <region>
 
